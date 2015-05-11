@@ -8,6 +8,7 @@
 
 #import "WBDiscoveryTableViewController.h"
 #import "UIBarButtonItem+custom.h"
+#import "WBSearchBar.h"
 @interface WBDiscoveryTableViewController ()
 
 @end
@@ -26,31 +27,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    UITextField* searchBar=[[UITextField alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 30)];
+    WBSearchBar* searchbar=[[WBSearchBar alloc]init];
     
-    //设置放大镜图片
-    UIImageView* imageView= [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"searchbar_textfield_search_icon"]];
-    searchBar.leftView=imageView;
-    [imageView setBounds:CGRectMake(0, 0, 40, 30)];
-   //设置居中显示
-    imageView.contentMode=UIViewContentModeCenter;
-    //设置永远显示
-    searchBar.leftViewMode=UITextFieldViewModeAlways;
-    UIImage* image= [UIImage imageNamed:@"searchbar_textfield_background_os7"];
     
-    [searchBar setBackground:image];
-    //设置默认提示文字
-    [searchBar setPlaceholder:@"搜索"];
-    //显示快速删除
-    searchBar.clearButtonMode=UITextFieldViewModeWhileEditing;
-    //修改键盘的return键
-    searchBar.returnKeyType=UIReturnKeySearch;           
-    searchBar.enablesReturnKeyAutomatically=YES;
-    
-    //设置textfield大小
-    
-    searchBar.bounds=CGRectMake(0, 0, self.view.frame.size.width, 30);
-    self.navigationItem.titleView=searchBar;
+    searchbar.bounds=CGRectMake(0, 0, self.view.frame.size.width, 30);
+    self.navigationItem.titleView=searchbar;
 }
 
 - (void)didReceiveMemoryWarning

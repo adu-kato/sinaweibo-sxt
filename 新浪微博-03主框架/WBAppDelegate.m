@@ -8,6 +8,7 @@
 
 #import "WBAppDelegate.h"
 #import "WBTabBarViewController.h"
+#import "OAuth2ViewController.h"
 @implementation WBAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -15,15 +16,41 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
+    //判断是否已经login
+    if([self.accountManager isValidateAccount]||[self.accountManager isExpires])
+    {
+    
+        OAuth2ViewController* login=[[OAuth2ViewController alloc]init];
+        self.window.rootViewController=login;
+    
+    }
+    
+    else{
+    
+    
     
     //设置主控制器
-    WBTabBarViewController* tbvc=[[WBTabBarViewController alloc]init];
-    self.window.rootViewController=tbvc;
+    WBTabBarViewController* controller=[[WBTabBarViewController alloc]init];
+    self.window.rootViewController=controller;
     
+    
+        self.window.rootViewController=controller;
+    }
     [self.window makeKeyAndVisible];
     
     
     return YES;
+}
+#pragma mark 账户管理类创建对象
+-(AccountManager *)accountManager
+{
+if(!_accountManager)
+{
+    _accountManager=[[AccountManager alloc]init];
+}
+    return _accountManager;
+
+
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
