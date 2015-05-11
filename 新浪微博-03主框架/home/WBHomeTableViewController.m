@@ -9,6 +9,7 @@
 #import "WBHomeTableViewController.h"
 #import  "WBTitleButton.h"
 #import "UIBarButtonItem+custom.h"
+#import "WBNewFeatureViewController.h"
 @interface WBHomeTableViewController ()
 
 @end
