@@ -18,6 +18,6 @@
     [btn setImage:image2 forState:UIControlStateHighlighted];
     btn.bounds=CGRectMake(0, 0, image.size.width, image.size.height);
     return [[UIBarButtonItem alloc]initWithCustomView:btn];
-    
+    //ssqs
 }
 @end

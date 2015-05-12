@@ -54,7 +54,29 @@
     
     return YES;
 }
-#pragma mark 账户管理类创建对象
+#pragma mark新特征已经显示后，然后在用户偏好中进行记录
+-(void)newFeatureDidAppear
+{
+
+    
+    
+   NSString* version= [ [[NSBundle mainBundle]infoDictionary]objectForKey:(NSString *)kCFBundleVersionKey];
+    
+    
+    
+                       [[NSUserDefaults standardUserDefaults]setObject:version forKey:@"lastVersion"];
+    [[NSUserDefaults standardUserDefaults]synchronize];
+                       
+                       
+}
+
+#pragma mark 读取用户偏好，返回新特征是否需要显示
+-(BOOL)newFeatureIsShowed
+{
+
+    return NO;
+}
+#pragma mark 账户管理对象的get方法
 -(AccountManager *)accountManager
 {
 if(!_accountManager)
