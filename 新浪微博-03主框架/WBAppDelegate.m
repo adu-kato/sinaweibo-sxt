@@ -10,6 +10,8 @@
 #import "WBTabBarViewController.h"
 #import "OAuth2ViewController.h"
 #import "WBNewFeatureViewController.h"
+
+
 @implementation WBAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -63,6 +65,7 @@ if(!_accountManager)
 
 
 }
+
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {

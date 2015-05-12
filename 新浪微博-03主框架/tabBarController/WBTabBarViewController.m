@@ -24,7 +24,7 @@
 {
     [super viewDidLoad];
     [self replaceTabbar];
-    [self childrenControllers];//安晓真你个大笨蛋竟然忘记调用方法了!!!!!!
+    [self childrenControllers];
 }
 #pragma mark 替换系统的tabbar
 -(void)replaceTabbar
